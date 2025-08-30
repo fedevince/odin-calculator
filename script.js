@@ -36,10 +36,11 @@ const display = document.querySelector(".display");
 display.textContent = '';
 const operators = "-+*/";
 
-// fix this
-// set to save the last operator 
+
 // logic for equal
 // factor out splitting function?
+// logic for decimal
+// logic for what happens when two operators in a row
 const executeOperation = function (display) { 
     let operatorCounter = 0;
     for (index in display.textContent) {
@@ -49,10 +50,12 @@ const executeOperation = function (display) {
     if (operatorCounter >= 2) {
         num1 = Number(display.textContent.split(/[+\-*\/]/)[0]);
         num2 = Number(display.textContent.split(/[+\-*\/]/)[1]);
+        let currentOperators = display.textContent.match(/[+\-*\/]/g);
+        let operator1 = currentOperators[0];
+        let operator2 = currentOperators[1]
         operator = display.textContent[display.textContent.search(/[+\-*\/]/)];
-        console.log(`num1 ${num1}, num2 ${num2}, operator ${operator}`)
-        let result = operate(num1, num2, operator);
-        display.textContent = result;
+        let result = operate(num1, num2, operator1);
+        display.textContent = result + `${operator2}`;
     }
 }
 
