@@ -4,7 +4,60 @@
     padding: 0;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 200px 50px 200px;
+}
+
 .container {
     display: flex;
     flex: 1;
+    flex-direction: column;
+}
+
+#calculator {
+    max-width: 400px;
+    height: 500px;
+    border: solid black 2px;
+}
+
+.display {
+    background-color: white;
+    text-align: right;
+    padding: 25px;
+    margin: 20px;
+    border: solid black 2px;
+    height: 10%;
+}
+
+#buttons-container {
+    flex-direction: row;
+    border: solid lightgray 2px;
+}
+
+.number-container, .operator-container {
+    padding: 25px;
+    margin: 20px;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-container {
+    flex-direction: row;
+    min-width: 60%;
+    align-items: center;
+    margin-right: 0px;
+}
+
+.operator-container{
+    min-width: 20%;
+}
+
+button {
+    aspect-ratio: 1;
+    width: 45px;
 }
