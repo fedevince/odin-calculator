@@ -38,6 +38,15 @@ const operators = "-+*/";
 
 
 // logic for equal
+
+const equal = function(display) {
+    num1 = Number(display.textContent.split(/[+\-*\/]/)[0]);
+    num2 = Number(display.textContent.split(/[+\-*\/]/)[1]);
+    let currentOperators = display.textContent.match(/[+\-*\/]/g);
+    let operator1 = currentOperators[0];
+    let result = operate(num1, num2,operator1)
+    return result;
+}
 // factor out splitting function?
 // logic for decimal
 // logic for what happens when two operators in a row
@@ -63,7 +72,7 @@ let btns = document.querySelectorAll("button");
 for (let btn of btns) {
     btn.addEventListener("click", () => {
         if (btn.id === "clear") display.textContent = 0;
-        else if (btn.id == "=") display.textContent = operate();
+        else if (btn.id == "=") display.textContent = equal(display);
         else display.textContent += btn.id;
         executeOperation(display)
     })
